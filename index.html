@@ -6,11 +6,6 @@
 	<title>Register for Full Stack Conf</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/style.css">
-	<style>
-	.error {
-    	border: solid red;
-	}
-	</style>
 </head>
 <body>
 	<div class="container">
@@ -27,10 +22,10 @@
         <div class="error-message"></div>
         
         <label for="name">Name:</label>
-        <input type="text" id="name" name="user_name" required>
+        <input type="text" id="name" name="user_name">
         
         <label for="mail">Email:</label>
-        <input type="email" id="mail" name="user_email" required>
+        <input type="email" id="mail" name="user_email">
         
         <label for="title">Job Role</label>
         <select id="title" name="user_title">
@@ -67,7 +62,7 @@
           </select>
         </div>
 
-        <div id="colors-js-puns" class="">
+        <div id="colors-js-puns">
           <label for="color">Color:</label>
           <select id="color">
 			<optgroup label="JS Puns shirt only" class="puns">
@@ -86,6 +81,7 @@
 
       <fieldset class="activities">
         <legend>Register for Activities</legend>
+		  <div id="activity-error"></div>
         <label><input type="checkbox" name="all"> Main Conference — $200</label>
         <label><input type="checkbox" name="js-frameworks"> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100</label>
         <label><input type="checkbox" name="js-libs"> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100</label>
@@ -99,9 +95,9 @@
         <legend>Payment Info</legend>
 
         <label for="payment">I'm going to pay with:</label>
-        <select id="payment" name="user_payment" required>
-          <option value="select_method">Select Payment Method</option>
-          <option value="credit card">Credit Card</option>
+        <select id="payment" name="user_payment">
+          <option value="select_method" disabled>Select Payment Method</option>
+          <option value="credit card" selected>Credit Card</option>
           <option value="paypal">PayPal</option>
           <option value="bitcoin">Bitcoin</option>
         </select>
@@ -110,24 +106,22 @@
 
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
-        	  <input id="cc-num" name="user_cc-num" type="text" required>
-              <div id="card" class="error">Please enter a credit card number.</div>
-              <div id="card-number" class="error">Please enter a credit card number between 13 and 16.</div>
+        	  <input id="cc-num" name="user_cc-num" type="text">
               <br>
           </div>
 
           <div class="col-3 col">
             <label for="zip">Zip Code:</label>
-            <input id="zip" name="user_zip" type="text" required> 
+            <input id="zip" name="user_zip" type="text"> 
           </div>
 
           <div class="col-3 col">
             <label for="cvv">CVV:</label>
-            <input id="cvv" name="user_cvv" type="text" required> 
+            <input id="cvv" name="user_cvv" type="text"> 
           </div>
 
           <label for="exp-month">Expiration Date:</label>
-          <select id="exp-month" name="user_exp-month" required>
+          <select id="exp-month" name="user_exp-month">
             <option value="1">1 - January</option>
             <option value="2">2 - February</option>
             <option value="3">3 - March</option>
@@ -142,7 +136,7 @@
             <option value="12">12 - December</option>          		          
           </select>
           <label for="exp-year">Expiration Year:</label>
-          <select id="exp-year" name="user_exp-year" required>
+          <select id="exp-year" name="user_exp-year">
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -160,11 +154,8 @@
         </div>                  
 
       </fieldset>        
-        
       <button type="submit">Register</button>
-      
     </form>
-
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
