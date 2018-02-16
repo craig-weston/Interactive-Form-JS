@@ -2,7 +2,7 @@ $(document).ready(function() {
 	
 	var checked = $("checkbox:checked");
 	var all = $("input[name='all'");
-	var frameworks = $("input[name='js-frameworks'");
+	var frameworks = $("input[name='js-frameworks']");
 	var libraries = $("input[name='js-libs']");
 	var express = $("input[name='express']");
 	var node = $("input[name='node']");
@@ -101,45 +101,46 @@ $(document).ready(function() {
 	$('form').submit(function(e){
 		
 		if (nameValid != true) {
-		 $('label[for="name"]').css("color", "red");
 			$('#name').attr("placeholder", "Please enter your name");
 			e.preventDefault();
 		}
 		
 
-		if (emailValid != true) {
-			$('label[for="mail"]').css("color", "red");
-			$('#mail').attr("placeholder", "Please enter your email");
-			e.preventDefault();
-		}
+	
 		
 		if (cValidate != true) {
-			$('label[for="cvv"]').css("color", "red");
 			$('#cvv').attr("placeholder", "Please enter your 3 digit CVV");
 			e.preventDefault();
 		}
 
 		if (ccNumValid != true) {
-			$('label[for="cc-num"]').css("color", "red");
 			$('#cc-num').attr("placeholder", "Please enter a number that is between 13 and 16 digits long");
 			e.preventDefault();
 		}
 		
 		if (zipValid != true) {
-			$('label[for="zip"]').css("color", "red");
 			$('#zip').attr("placeholder", "Please enter your 5 digit ZIP");
 			e.preventDefault();
 		}
 		
 
 		if ($('.activities :checkbox:checked').length == 0){
-			$('#activity-error').append('<h3 style="color:red">Please select your activity below:</h3>');
+			$('#activity-error').html('<h3 style="color:red">Please select your activity below:</h3>');
+			e.preventDefault();
+			$('#activity-error').slideDown();
+		}
+		
+			if (emailValid != true) {
+			$('#mail').attr("placeholder", "Please enter your email");
 			e.preventDefault();
 		}
+		
+		
 
-		else if (nameValid = true){
-			$('label[for="name"]').css("color", "green");
-			$('#activity-error').hide();
+		
+		else {
+			$('label').css("color", "green!important");
+			$('#activity-error').slideUp();
 		}
 		
 	});
@@ -169,7 +170,7 @@ $(document).ready(function() {
   });
 	
 
-	// If the user selects a workshop, don't allow selection of a workshop at the same date and time -- disable the checkbox and visually indicate that the workshop in the competing time slot isn't available.
+	//If the user selects a workshop, don't allow selection of a workshop at the same date and time -- disable the checkbox and visually indicate that the workshop in the competing time slot isn't available.
 	
 	$(frameworks).change(function(){
 		$(express).attr('disabled', this.checked);
@@ -248,6 +249,8 @@ $(document).ready(function() {
 		totalCost += cost;
 		document.getElementById("total").innerHTML = "Total Costs: $" + totalCost;
 	}; 
+	
+
 	
 	// Display relevant message depending on payment type
 	
