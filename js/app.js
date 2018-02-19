@@ -85,8 +85,8 @@ $(document).ready(function() {
 	
 	$("#cvv").keyup(function() {
 	  if ($('#cvv').val().length === 3) {
-		ccNumValid = true;
-		return ccNumValid;
+		cValidate = true;
+		return cValidate;
 	  }
 	});
 	
@@ -106,8 +106,6 @@ $(document).ready(function() {
 		}
 		
 
-	
-		
 		if (cValidate != true) {
 			$('#cvv').attr("placeholder", "Please enter your 3 digit CVV");
 			e.preventDefault();
